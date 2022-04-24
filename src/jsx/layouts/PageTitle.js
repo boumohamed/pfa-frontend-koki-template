@@ -6,7 +6,7 @@ const PageTitle = ({ headingPara, motherMenu, activeMenu }) => {
 		<div className="row page-titles mx-0">
 			<div className="col-sm-6 p-md-0">
 				<div className="welcome-text">
-					<h4>Bienvenus</h4>
+
 					<p className="mb-0">{headingPara}</p>
 				</div>
 			</div>

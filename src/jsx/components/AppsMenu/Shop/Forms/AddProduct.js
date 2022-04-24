@@ -9,14 +9,12 @@ export default function AddProduct() {
 
     
    const [categories, setCategories] = useState([])
-   const [category, setCategory] = useState({})
    const [file, setFile] = useState("")
    const [NewProduct, setProduct] = useState({
       nomPrd : "",
-      prixUt : "",
+      prixUt : 0,
       description : "",
-      image:"",
-      category : ""
+      category : 0
    })
 
    useEffect(async () => {
@@ -26,38 +24,46 @@ export default function AddProduct() {
    function handleForm(e) {
       const { name, value } = e.target;
       setProduct({ ...NewProduct, [name]: value });
+   
       }
 
    async function saveProduct(e) {
       e.preventDefault()
       const formData = new FormData()
-
+      
       formData.append("nomPrd",NewProduct.nomPrd)
-      formData.append("prixUt",NewProduct.nomPrd)
-      formData.append("description",NewProduct.nomPrd)
-      formData.append("image",'img4')
-      console.log(NewProduct)
-      await axios.get(`http://localhost:8080/user/categories/${NewProduct.category}`)
-      .then(res => {
-         setCategory(res.data)
-         console.log(res.data)
-      })
-      formData.append("category",category)
-      console.log(formData)
-      axios.post('http://localhost:8080/admin/add/produit',formData)
+      formData.append("prixUt",NewProduct.prixUt)
+      formData.append("description",NewProduct.description)
+
+      formData.append("image", file.name)
+      formData.append("categorie", NewProduct.category)
+      formData.append("file", file)
+      
+      //axios.post('http://localhost:8080/admin/add/produit',formData)
+      await axios({
+         method: "post",
+         url: "http://localhost:8080/admin/add/produit",
+         data: formData,
+         headers: {
+            Accept: "application/json ,text/plain, */*",
+                     "Content-Type": "multipart/form-data",
+         },
+         })
+
    }
    async function getCategories()
    {
       await axios.get("http://localhost:8080/user/categories")
       .then(res => {
          setCategories(res.data)
-         console.log(res.data)
+        
       })
    }
 
    const handlFile = (e) => {
-      const file = e.target.files[0].name
+      const file = e.target.files[0]
       setFile(file)
+    
    }
   return (
     <div className="row">
@@ -123,6 +129,7 @@ export default function AddProduct() {
                                  required
                                  className="form-control" 
                                  accept=".jpg, .jpeg, .png"
+                                 name='image'
                                  onChange={(e) => {handlFile(e)}}
                                  
                                   />
