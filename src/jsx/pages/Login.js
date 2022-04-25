@@ -26,25 +26,17 @@ const Login = () => {
                            </div>
                            <div className="form-group">
                               <label className="mb-1 "> <strong>Password</strong>  </label>
-                              <input type="password" className="form-control" value="Password"  onChange={handleBlur}  />
+                              <input type="password" className="form-control"  onChange={handleBlur}  />
                            </div>
                            <div className="form-row d-flex justify-content-between mt-4 mb-2">
-                              <div className="form-group">
-                                 <div className="custom-control custom-checkbox ml-1 ">
-                                    <input  type="checkbox" className="custom-control-input"   id="basic_checkbox_1"  />
-                                    <label    className="custom-control-label" htmlFor="basic_checkbox_1"  >  Remember my preference </label>
-								</div>
-                              </div>
-                              <div className="form-group">
-                                 <Link  className=""  to="/page-forgot-password"  > Forgot Password?  </Link>
-                              </div>
+
                            </div>
                            <div className="text-center">
                               <button  type="submit"  className="btn btn-primary btn-block"  onClick={() => submitHandler} > Sign Me In </button>
                            </div>
                         </form>
                         <div className="new-account mt-3">
-                           <p className=""> Don't have an account?{" "}   <Link className="text-primary" to="/page-register">  Sign up   </Link>  </p>
+                           <p className=""> Don't have an account?{" "}   <Link className="text-primary" to="/register">  Sign up   </Link>  </p>
                         </div>
                      </div>
                   </div>

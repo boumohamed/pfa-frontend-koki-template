@@ -15,7 +15,7 @@ const App = ({ width }) => {
    width >= 1300
       ? body.setAttribute("data-sidebar-style", "full")
       : width <= 1299 && width >= 767
-      ? body.setAttribute("data-sidebar-style", "mini")
+      ? body.setAttribute("data-sidebar-style", "full")
       : body.setAttribute("data-sidebar-style", "overlay");
    return (
       <Fragment>

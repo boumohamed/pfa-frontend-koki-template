@@ -85,15 +85,6 @@ class SideBar extends Component {
             "ui-pagination",
             "ui-grid",
          ],
-         plugins = [
-            "uc-select2",
-            "uc-nestable",
-            "uc-sweetalert",
-            "uc-toastr",
-            "uc-jqvmap",
-            "uc-noui-slider",
-         ],
-         widget = ["widget"],
          forms = [
             "form-element",
             "form-wizard",
@@ -118,8 +109,8 @@ class SideBar extends Component {
                         className="has-arrow ai-icon"
                         to="#"
                      >
-                        <i className="flaticon-381-television"></i>
-                        <span className="nav-text">Apps</span>
+                        
+                        <span className="nav-text">Shoping</span>
                      </Link>
                      <ul >
                         <li>
@@ -138,17 +129,19 @@ class SideBar extends Component {
                                  </Link>
                               </li>
                               <li>
-                                 <Link to="/ecom-product-order">Commandes</Link>
+
+                                 <Link to="/ecom-product-order">Orders</Link>
+
                               </li>
                               
                               <li>
-                                 <Link to="/ecom-customers">Clients</Link>
+                                 <Link to="/ecom-customers">Customers</Link>
                               </li>
                            
                         </li>
                      </ul>
                   </li>
-                  
+                  {/* 
                   <li
                      className={`${
                         deshBoard.includes(path.slice(1)) ? "mm-active" : ""
@@ -159,7 +152,6 @@ class SideBar extends Component {
                         to="#"
                         
                      >
-                        <i className="flaticon-381-networking"></i>
                         <span className="nav-text">Dashboard</span>
                      </Link>
                      <ul >
@@ -186,7 +178,7 @@ class SideBar extends Component {
                         to="#"
                         
                      >
-                        <i className="flaticon-381-internet"></i>
+                       
                         <span className="nav-text">Bootstrap</span>
                      </Link>
                      <ul >
@@ -245,48 +237,6 @@ class SideBar extends Component {
                   </li>
                   <li
                      className={`${
-                        plugins.includes(path.slice(1)) ? "mm-active" : ""
-                     }`}
-                  >
-                     <Link
-                        className="has-arrow ai-icon"
-                        to="#"
-                        
-                     >
-                        <i className="flaticon-381-heart"></i>
-                        <span className="nav-text">Plugins</span>
-                     </Link>
-                     <ul >
-                        <li>
-                           <Link to="/uc-select2">Select 2</Link>
-                        </li>
-                        <li>
-                           <Link to="/uc-noui-slider">Noui Slider</Link>
-                        </li>
-                        <li>
-                           <Link to="/uc-sweetalert">Sweet Alert</Link>
-                        </li>
-                        <li>
-                           <Link to="/uc-toastr">Toastr</Link>
-                        </li>
-                     </ul>
-                  </li>
-                  <li
-                     className={`${
-                        widget.includes(path.slice(1)) ? "mm-active" : ""
-                     }`}
-                  >
-                     <Link
-                        to="widget-basic"
-                        className="ai-icon"
-                        
-                     >
-                        <i className="flaticon-381-settings-2"></i>
-                        <span className="nav-text">Widget</span>
-                     </Link>
-                  </li>
-                  <li
-                     className={`${
                         forms.includes(path.slice(1)) ? "mm-active" : ""
                      }`}
                   >
@@ -295,7 +245,6 @@ class SideBar extends Component {
                         to="#"
                         
                      >
-                        <i className="flaticon-381-notepad"></i>
                         <span className="nav-text forms">Forms</span>
                      </Link>
                      <ul >
@@ -324,7 +273,6 @@ class SideBar extends Component {
                         to="#"
                         
                      >
-                        <i className="flaticon-381-network"></i>
                         <span className="nav-text">Table</span>
                      </Link>
                      <ul >
@@ -342,16 +290,9 @@ class SideBar extends Component {
                         to="#"
                         
                      >
-                        <i className="flaticon-381-layer-1"></i>
                         <span className="nav-text">Pages</span>
                      </Link>
                      <ul >
-                        <li>
-                           <Link to="/page-register">Register</Link>
-                        </li>
-                        <li>
-                           <Link to="/page-login">Login</Link>
-                        </li>
                         <li>
                            <Link
                               className="has-arrow"
@@ -378,11 +319,9 @@ class SideBar extends Component {
                               </li>
                            </ul>
                         </li>
-                        <li>
-                           <Link to="/page-lock-screen">Lock Screen</Link>
-                        </li>
                      </ul>
                   </li>
+                  */}
                </MM>
 				
                <div className="copyright">

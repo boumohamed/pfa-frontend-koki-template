@@ -1,26 +1,56 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import axios from "axios";
 import PageTitle from "../../../../layouts/PageTitle";
 import { Button } from 'react-bootstrap'
 import { ToastContainer, toast } from "react-toastify";
 
 const ProductDetail = ({ match }) => {
-   
+   let history = useHistory();
    const notifyTopRight = () => {
       toast.info("Item Added Successfully", {
          position: "top-center",
          autoClose: 4000,
          hideProgressBar: true,
          closeOnClick: true,
-         draggable: true,
+         draggable: false,
+         
+
       });
+      setTimeout(() => {
+         history.push('/ecom-product-list')
+     }, 4000)
+ 
+
+      
    };
    const [productData, setData] = useState([])
+   
+   
+
+   function AddTocart() {
+      
+      var existingProducts = JSON.parse(localStorage.getItem("products"));
+      if(existingProducts == null) existingProducts = [];
+      // Save allEntries back to local storage
+      localStorage.setItem("products", JSON.stringify(existingProducts));
+
+      var newItem = {
+         "product": productData,
+         "quantity": 0
+         };
+         existingProducts.push(newItem);
+         localStorage.setItem("newItem", JSON.stringify(newItem));
+         localStorage.setItem("products", JSON.stringify(existingProducts));
+
+         notifyTopRight()
+         console.log(JSON.parse(localStorage.getItem("products")))
+         
+   }
 
     useEffect(() => {
         getData();
-    }, [])
+    }, [productData])
 
     async function getData()
     {
@@ -56,7 +86,7 @@ const ProductDetail = ({ match }) => {
                               <div className="new-arrival-content pr">
                                  <h4 >{productData.nomPrd}</h4>
                                  
-                                 <p className="price">${productData.prixUt}</p>
+                                 <p className="price">{productData.prixUt} MAD</p>
                                  <p>
                                     Availability:
                                     <span className="item">
@@ -80,7 +110,7 @@ const ProductDetail = ({ match }) => {
                                  <div className="shopping-cart mt-3">
                                     <Button
                                        className="btn btn-primary"
-                                       onClick={notifyTopRight}
+                                       onClick={AddTocart}
                                     >
                                        <i className="fa fa-shopping-basket mr-2"></i>
                                        Add to cart
