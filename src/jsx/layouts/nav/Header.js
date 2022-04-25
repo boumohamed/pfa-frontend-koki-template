@@ -4,10 +4,6 @@ import { Link } from "react-router-dom";
 /// Scroll
 
 
-/// Image
-import profile from "../../../images/profile/12.png";
-
-
 const Header = ({ onNote, toggle, onProfile, onActivity, onNotification}) => {
    var path = window.location.pathname.split("/");
    var name = path[path.length - 1].split("-");
@@ -78,7 +74,7 @@ const Header = ({ onNote, toggle, onProfile, onActivity, onNotification}) => {
                            <div className="header-info">
 								
                            </div>
-                           <img src={profile} width="20" alt="" />
+                           <img src="https://s3.eu-central-1.amazonaws.com/stagiaires.ma/candidates/pictures/2021/12/x600/146197_mohamed-bouzri.jpeg?v=1639848316" width="20" alt="" />
                         </Link>
                         <div
                            className={`dropdown-menu dropdown-menu-right ${

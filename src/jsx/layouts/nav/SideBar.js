@@ -138,11 +138,6 @@ class SideBar extends Component {
                                  </Link>
                               </li>
                               <li>
-                                 <Link to="/ecom-product-detail">
-                                    Details Produit
-                                 </Link>
-                              </li>
-                              <li>
                                  <Link to="/ecom-product-order">Commandes</Link>
                               </li>
                               
