@@ -54,7 +54,16 @@ const Header = ({ onNote, toggle, onProfile, onActivity, onNotification}) => {
 
                   <ul className="navbar-nav header-right">
                    
-					 
+                     <li className="nav-item dropdown notification_dropdown">
+                              <Link to="/register">
+                                 Register
+                              </Link>
+                     </li>
+                     <li className="nav-item dropdown notification_dropdown">
+                              <Link to="/login">
+                                 Login
+                              </Link>
+                     </li>
                      <li className="nav-item dropdown notification_dropdown">
                         <Link to={"/app-cart"}
                            className="nav-link bell bell-link"
@@ -63,6 +72,7 @@ const Header = ({ onNote, toggle, onProfile, onActivity, onNotification}) => {
                            <svg width="24px" height="24px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M8.132 2.504 4.42 9H3a1.001 1.001 0 0 0-.965 1.263l2.799 10.263A2.004 2.004 0 0 0 6.764 22h10.473c.898 0 1.692-.605 1.93-1.475l2.799-10.263A.998.998 0 0 0 21 9h-1.42l-3.712-6.496-1.736.992L17.277 9H6.723l3.145-5.504-1.736-.992zM14 13h2v5h-2v-5zm-6 0h2v5H8v-5z"/></svg>
                            <span className="badge light text-white bg-primary">5 </span>
                         </Link>
+                        
                      </li>
                      <li
                         className={`nav-item dropdown header-profile ${
@@ -78,7 +88,7 @@ const Header = ({ onNote, toggle, onProfile, onActivity, onNotification}) => {
                            <div className="header-info">
 								
                            </div>
-                           <img src={profile} width="20" alt="" />
+                           <img src="https://s3.eu-central-1.amazonaws.com/stagiaires.ma/candidates/pictures/2021/12/x600/146197_mohamed-bouzri.jpeg?v=1639848316" width="20" alt="" />
                         </Link>
                         <div
                            className={`dropdown-menu dropdown-menu-right ${

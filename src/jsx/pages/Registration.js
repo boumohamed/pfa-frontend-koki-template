@@ -52,7 +52,7 @@ const Registration = () => {
                         <div className="new-account mt-3">
                            <p className="">
                               Already have an account?{" "}
-                              <Link className="text-primary" to="/page-login">
+                              <Link className="text-primary" to="/login">
                                  Sign in
                               </Link>
                            </p>

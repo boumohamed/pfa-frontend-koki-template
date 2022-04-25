@@ -21,8 +21,6 @@ import Error404 from "./pages/Error404";
 import Error500 from "./pages/Error500";
 import Error503 from "./pages/Error503";
 import ForgotPassword from "./pages/ForgotPassword";
-/// Widget
-import Widget from "./pages/Widget";
 
 /// Deshboard
 import Home from "./components/Dashboard/Home/Home";
@@ -109,7 +107,7 @@ const Markup = () => {
 		{ url: "add-category", component: AddCategory },
 		{ url: "list-categories", component: Categories },
 		/// Deshborad
-		{ url: "", component: Home },
+		{ url: "", component: ProductList },
 		{ url: "companies", component: Companies },
 		{ url: "analytics", component: Analytics },
 		{ url: "review", component: Review },
@@ -180,10 +178,9 @@ const Markup = () => {
 		{ url: "map-jqvmap", component: JqvMap },
 
 		/// pages
-		{ url: "widget-basic", component: Widget },
-		{ url: "page-register", component: Registration },
+		{ url: "register", component: Registration },
 		{ url: "page-lock-screen", component: LockScreen },
-		{ url: "page-login", component: Login },
+		{ url: "login", component: Login },
 		{ url: "page-error-400", component: Error400 },
 		{ url: "page-error-403", component: Error403 },
 		{ url: "page-error-404", component: Error404 },
@@ -194,7 +191,7 @@ const Markup = () => {
 
    return (
 		
-			<Router basename="/react">
+			<Router basename="/app">
 				<div id="main-wrapper" className="show">
 					<Nav />
 					<div className="content-body">
