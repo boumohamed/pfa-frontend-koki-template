@@ -32,7 +32,7 @@ const Header = ({ onNote, toggle, onProfile, onActivity, onNotification}) => {
       ? filterName.filter((f) => f !== "editor")
       : filterName;
 	
-	var page_name = (finalName.join(" ") === '')?'Dashboard':finalName.join(" ");
+	var page_name = (finalName.join(" ") === '')?'Product List':finalName.join(" ");
    var existingProducts = JSON.parse(localStorage.getItem("products"));	
 	  
    return (
@@ -67,7 +67,7 @@ const Header = ({ onNote, toggle, onProfile, onActivity, onNotification}) => {
                            
                         >
                            <svg width="24px" height="24px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M8.132 2.504 4.42 9H3a1.001 1.001 0 0 0-.965 1.263l2.799 10.263A2.004 2.004 0 0 0 6.764 22h10.473c.898 0 1.692-.605 1.93-1.475l2.799-10.263A.998.998 0 0 0 21 9h-1.42l-3.712-6.496-1.736.992L17.277 9H6.723l3.145-5.504-1.736-.992zM14 13h2v5h-2v-5zm-6 0h2v5H8v-5z"/></svg>
-                           <span className="badge light text-white bg-primary">{existingProducts.length}</span>
+                           <span className="badge light text-white bg-primary">{existingProducts && existingProducts.length}</span>
                         </Link>
                         
                      </li>
@@ -114,11 +114,11 @@ const Header = ({ onNote, toggle, onProfile, onActivity, onNotification}) => {
                               </svg>
                               <span className="ml-2">Profile </span>
                            </Link>
-                           <Link to="/orders" className="dropdown-item ai-icon">
+                           <Link to="/my-orders" className="dropdown-item ai-icon">
                               <i class="fa-solid fa-list text-primary"></i>&nbsp;&nbsp; My Orders
                            </Link>
                            <Link
-                              to="/page-login"
+                              to="/login"
                               className="dropdown-item ai-icon"
                            >
                               <svg

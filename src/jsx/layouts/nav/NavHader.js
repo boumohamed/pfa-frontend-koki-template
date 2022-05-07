@@ -14,7 +14,7 @@ const NavHader = () => {
    return (
       <div className="nav-header">
          
-         <Link to="/" className="brand-logo">
+         <Link to="/ecom-product-list" className="brand-logo">
             <img className="logo-abbr" src={logo} alt="" />
             <img className="logo-compact" src={logoText} alt="" />
             <img className="brand-title" src={logoText} alt="" />

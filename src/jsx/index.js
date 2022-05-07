@@ -52,7 +52,7 @@ import UiTypography from "./components/bootstrap/Typography";
 
 /// App
 import AppProfile from "./components/AppsMenu/AppProfile/AppProfile";
-
+import MyOrders from "./components/AppsMenu/AppProfile/MyOrders";
 
 
 
@@ -98,22 +98,27 @@ import RechartJs from "./components/charts/rechart";
 import AddProduct from "./components/AppsMenu/Shop/Forms/AddProduct";
 import AddCategory from "./components/AppsMenu/Shop/Forms/AddCategory";
 import Categories from "./components/AppsMenu/Shop/Lists/Categories";
+import Cart from "./components/AppsMenu/AppProfile/Cart";
+import UpdateCategory from "./components/AppsMenu/Shop/Forms/updateCategory";
 
 const Markup = () => {
    const routes = [
 
 		/// Added by me
+		{ url: "", component: ProductList },
+		{ url: "cart", component: Cart },
 		{ url: "add-product", component: AddProduct },
 		{ url: "add-category", component: AddCategory },
 		{ url: "list-categories", component: Categories },
+		{ url: "update-category/:id", component: UpdateCategory },
+		{ url: "customer-list", component: Customerlist },
+		{ url: "order-list", component: Orderlist },
+		{ url: "order", component: Order },
+		{ url: "my-orders", component: MyOrders },
 		/// Deshborad
-		{ url: "", component: ProductList },
 		{ url: "companies", component: Companies },
 		{ url: "analytics", component: Analytics },
 		{ url: "review", component: Review },
-		{ url: "order", component: Order },
-		{ url: "order-list", component: Orderlist },
-		{ url: "customer-list", component: Customerlist },
 		/// Bootstrap
 		{ url: "ui-alert", component: UiAlert },
 		{ url: "ui-badge", component: UiBadge },

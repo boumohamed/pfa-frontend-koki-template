@@ -1,12 +1,14 @@
 import React,{Fragment, useEffect, useState} from 'react';
-import {Link} from 'react-router-dom';
-import { MDBDataTable } from 'mdbreact';
+import { useHistory } from "react-router-dom";
+import { MDBDataTable, MDBBtn, MDBIcon } from 'mdbreact';
 import axios from 'axios';
 import DisplayCategory from './DisplayCategory';
+import { Button } from 'react-bootstrap';
 
 export default function Categories() {
 
     const [categories, setCategories] = useState([])
+    let history = useHistory();
 
     useEffect(async () => {
         getCategories()
@@ -22,8 +24,32 @@ export default function Categories() {
         columns: [
             {label: 'ID', field: 'id', sort: 'asc'},
             {label: 'Name', field: 'designation',   sort: 'asc' },
+            {label: '', field: 'update', sort: 'asc' },
+            {label: '', field: 'delete', sort: 'asc' },
         ],	
-        rows: categories
+        rows: categories && categories.map((row) => {
+            return {
+              ...row,
+              update: (
+                <>
+                  <Button 
+                    variant="outline-secondary" 
+                    onClick={() => {history.push(`update-category/${row.id}`)}}
+                    >UPDATE</Button>
+                </>
+              ),
+              delete: (
+                <>
+                  <Button 
+                    variant="outline-danger">DELETE</Button>
+                </>
+              ),
+            };
+           
+            
+          }),
+       
+        
     };
   return (
     <Fragment>
@@ -31,7 +57,7 @@ export default function Categories() {
 				<div className="col-xl-12">
 					<div className="table-responsive">
 						<div  className="display mb-4 dataTablesCard">					
-							<MDBDataTable  striped 	small	data={data}	/>		
+							<MDBDataTable  striped hover small	data={data}	/>		
 						</div>
 					</div>
 				</div>	

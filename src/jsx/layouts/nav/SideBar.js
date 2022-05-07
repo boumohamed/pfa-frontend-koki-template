@@ -100,6 +100,7 @@ class SideBar extends Component {
                <MM className="metismenu" id="menu">
 
 
+
                <li
                      className={`${
                         app.includes(path.slice(1)) ? "mm-active" : ""
@@ -141,6 +142,60 @@ class SideBar extends Component {
                         </li>
                      </ul>
                   </li>
+                  <li
+                     className={`${
+                        app.includes(path.slice(1)) ? "mm-active" : ""
+                     }`}
+                  >
+                     <Link
+                           className="has-arrow ai-icon"
+                           to="#"
+                        >
+                           <span className="nav-text">Admin</span>
+                        </Link>
+                        <ul >
+                           <li>
+                              <Link to="/add-product">Add Product</Link>
+                           </li>
+                           <li>
+                              
+                                 <li>
+                                    <Link to="/add-category">
+                                       Add Category
+                                    </Link>
+                                 </li>
+                                 <li>
+                                    <Link to="/list-categories">
+                                       List Categories
+                                    </Link>
+                                 </li>
+                                 <li>
+                                    <Link to="/customer-list">
+                                       Customers
+                                    </Link>
+                                 </li>
+                                 
+                           </li>
+                        </ul>
+                     </li>
+                     <li
+                     className={`${
+                        app.includes(path.slice(1)) ? "mm-active" : ""
+                     }`}
+                  >
+                     <Link
+                           className="has-arrow ai-icon"
+                           to="#"
+                        >
+                           <span className="nav-text">Manager</span>
+                        </Link>
+                        <ul>
+                           <li>
+                              <Link to="/order">Orders</Link>
+                           </li>
+                           
+                        </ul>
+                     </li>
                   {/* 
                   <li
                      className={`${

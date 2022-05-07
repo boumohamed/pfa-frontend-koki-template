@@ -13,7 +13,11 @@ const SingleProductList = (props) => {
                      <div className="new-arrival-product mb-4 mb-xxl-4 mb-md-0">
                         <div className="new-arrivals-img-contnent">
                            <Link to={`ecom-product-list/${product.id}`}>
-                              <img className="img-fluid" src="https://www.simplyrecipes.com/thmb/8caxM88NgxZjz-T2aeRW3xjhzBg=/2000x1125/smart/filters:no_upscale()/__opt__aboutcom__coeus__resources__content_migration__simply_recipes__uploads__2019__09__easy-pepperoni-pizza-lead-3-8f256746d649404baa36a44d271329bc.jpg" alt="" />
+                              <img className="img-fluid" 
+                              src={product.cat.designation === "Hamburger" ? "https://insanelygoodrecipes.com/wp-content/uploads/2020/10/Hamburger-with-Sesame-Seeds-Cheese-and-Veggies.png" 
+                                    : product.cat.designation === "Boisson" ? "https://www.fifteenspatulas.com/wp-content/uploads/2015/07/Refreshing-Summer-Drinks-Fifteen-Spatulas-1-500x500.jpg" :
+                                    "https://assets.afcdn.com/recipe/20210901/121767_w1024h768c1cx2592cy1728.webp"}
+                               alt="" />
                            </Link>
                         </div>
                      </div>

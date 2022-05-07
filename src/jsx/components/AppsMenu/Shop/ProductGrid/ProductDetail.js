@@ -7,25 +7,16 @@ import { ToastContainer, toast } from "react-toastify";
 
 const ProductDetail = ({ match }) => {
    let history = useHistory();
-   const notifyTopRight = () => {
-      toast.info("Item Added Successfully", {
-         position: "top-center",
-         autoClose: 4000,
-         hideProgressBar: true,
-         closeOnClick: true,
-         draggable: false,
-         
-
-      });
-      setTimeout(() => {
-         history.push('/ecom-product-list')
-     }, 4000)
- 
-
-      
-   };
-   const [productData, setData] = useState([])
+   const [existingProducts, setProduct] = useState([])
+   const [quantity, setQuantity] = useState(1)
+   const [productData, setData] = useState({})
    
+   
+
+      useEffect(() => {
+         getData();
+         getProductFromLS();
+     }, [productData])
    
 
    function AddTocart() {
@@ -36,21 +27,48 @@ const ProductDetail = ({ match }) => {
       localStorage.setItem("products", JSON.stringify(existingProducts));
 
       var newItem = {
+         "id": productData.id,
          "product": productData,
-         "quantity": 0
+         "quantity": quantity
          };
-         existingProducts.push(newItem);
-         localStorage.setItem("newItem", JSON.stringify(newItem));
-         localStorage.setItem("products", JSON.stringify(existingProducts));
-
-         notifyTopRight()
-         console.log(JSON.parse(localStorage.getItem("products")))
+         if(quantity < 1 || quantity > 5)
+            Warning()
+         else
+         {
+            if(verifyExistance())
+            {
+               existingProducts = existingProducts.filter(item => item.id !== productData.id);
+               localStorage.removeItem("products");               
+            }
+            existingProducts.push(newItem);
+            localStorage.setItem("products", JSON.stringify(existingProducts));
+            totalCalculate()
+            AddedSuccessfuly()
+            
+            
+            
+         }
          
    }
 
-    useEffect(() => {
-        getData();
-    }, [productData])
+   const totalCalculate = () => {
+      let total = 0;
+      var existingProducts = JSON.parse(localStorage.getItem("products"));
+      existingProducts.map(item => {
+          total = total + item.quantity * item.product.prixUt
+      })
+      localStorage.setItem("Total", JSON.stringify(total));
+      //console.log(Total)
+  }
+   function verifyExistance()
+   {
+      let product = existingProducts.filter(item => item.id === productData.id)
+      if(product.length > 0)
+         return true
+      return false
+   }
+
+    
 
     async function getData()
     {
@@ -60,6 +78,43 @@ const ProductDetail = ({ match }) => {
         //console.log(res.data)
         })
     }
+
+    const getProductFromLS = () => {
+      setProduct(JSON.parse(localStorage.getItem("products")))
+  }
+
+  function handleForm(e) {
+   setQuantity(e.target.value);
+   }
+
+   // Toasts
+
+   const AddedSuccessfuly = () => {
+      toast.info("Item Added to Cart Successfully", {
+         position: "top-center",
+         autoClose: 2000,
+         hideProgressBar: true,
+         closeOnClick: true,
+         draggable: false,
+         
+
+      });
+         setTimeout(() => {
+            history.push('/ecom-product-list')
+      }, 2000)
+      };
+
+      const Warning = () => {
+         toast.warning("Quantity must be between 1 and 5", {
+            position: "top-center",
+            autoClose: 2000,
+            hideProgressBar: true,
+            closeOnClick: true,
+            draggable: false,
+            
+
+         });     
+      };
 
    return (
       <div className="h-80">
@@ -95,16 +150,17 @@ const ProductDetail = ({ match }) => {
                                     </span>
                                  </p>
                                  
-                                
-                                 
                                  <p className="text-content">{productData.decription}</p>
 
                                  <div className="col-2 px-0">
                                     <input
                                        type="number"
-                                       name="num"
+                                       name="quantity"
                                        className="form-control input-btn input-number"
                                        defaultValue="1"
+                                       min="1"
+                                       max="5"
+                                       onChange={handleForm}
                                     />
                                  </div>
                                  <div className="shopping-cart mt-3">
@@ -125,16 +181,16 @@ const ProductDetail = ({ match }) => {
             </div>
          </div>
          <ToastContainer
-                           position="top-right"
-                           autoClose={5000}
-                           hideProgressBar={false}
-                           newestOnTop
-                           closeOnClick
-                           rtl={false}
-                           pauseOnFocusLoss
-                           draggable
-                           pauseOnHover
-                        />
+            position="top-right"
+            autoClose={5000}
+            hideProgressBar={false}
+            newestOnTop
+            closeOnClick
+            rtl={false}
+            pauseOnFocusLoss
+            draggable
+            pauseOnHover
+         />
       </div>
    );
 };
