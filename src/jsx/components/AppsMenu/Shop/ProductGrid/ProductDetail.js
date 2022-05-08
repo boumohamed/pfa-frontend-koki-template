@@ -128,7 +128,8 @@ const ProductDetail = ({ match }) => {
 						<div className="col-xl-3 ">
 							<div className="tab-content">
 								<div role="tabpanel" className="tab-pane fade show active" id="first">
-									<img className="img-fluid" src="https://www.simplyrecipes.com/thmb/8caxM88NgxZjz-T2aeRW3xjhzBg=/2000x1125/smart/filters:no_upscale()/__opt__aboutcom__coeus__resources__content_migration__simply_recipes__uploads__2019__09__easy-pepperoni-pizza-lead-3-8f256746d649404baa36a44d271329bc.jpg" alt="" />
+                           
+									<img className="img-fluid" src="https://img.cuisineaz.com/660x660/2013/12/20/i34581-salade-nicoise-rapide.jpeg" alt="" />
 								</div>
 							</div>
 							<div className="tab-slide-content new-arrival-product mb-4 mb-xl-0">
@@ -141,7 +142,7 @@ const ProductDetail = ({ match }) => {
                               <div className="new-arrival-content pr">
                                  <h4 >{productData.nomPrd}</h4>
                                  
-                                 <p className="price">{productData.prixUt} MAD</p>
+                                 <p className="price text-warning">{productData.prixUt} MAD</p>
                                  <p>
                                     Availability:
                                     <span className="item">
@@ -165,7 +166,7 @@ const ProductDetail = ({ match }) => {
                                  </div>
                                  <div className="shopping-cart mt-3">
                                     <Button
-                                       className="btn btn-primary"
+                                       className="btn btn-warning"
                                        onClick={AddTocart}
                                     >
                                        <i className="fa fa-shopping-basket mr-2"></i>

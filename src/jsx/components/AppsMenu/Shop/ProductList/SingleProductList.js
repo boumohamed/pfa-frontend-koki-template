@@ -16,7 +16,7 @@ const SingleProductList = (props) => {
                               <img className="img-fluid" 
                               src={product.cat.designation === "Hamburger" ? "https://insanelygoodrecipes.com/wp-content/uploads/2020/10/Hamburger-with-Sesame-Seeds-Cheese-and-Veggies.png" 
                                     : product.cat.designation === "Boisson" ? "https://www.fifteenspatulas.com/wp-content/uploads/2015/07/Refreshing-Summer-Drinks-Fifteen-Spatulas-1-500x500.jpg" :
-                                    "https://assets.afcdn.com/recipe/20210901/121767_w1024h768c1cx2592cy1728.webp"}
+                                       "https://img.cuisineaz.com/660x660/2013/12/20/i34581-salade-nicoise-rapide.jpeg"}
                                alt="" />
                            </Link>
                         </div>
@@ -27,7 +27,7 @@ const SingleProductList = (props) => {
                         <h4><Link to={`ecom-product-list/${product.id}`} className="text-black">{product.nomPrd}</Link></h4>
                         <div className="comment-review star-rating">
                            
-							   <p className="price">{product.prixUt} MAD</p>
+							   <p className="price text-warning">{product.prixUt} MAD</p>
                         </div>
 						
                         <p>

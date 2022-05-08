@@ -5,7 +5,8 @@ import { Link } from "react-router-dom";
 
 /// images
 import logo from "../../../images/logo.png";
-import logoText from "../../../images/logo-text.png";
+import logoText from "../../../images/logo1.png";
+import logo1 from "../../../images/logo1.png";
 
 const NavHader = () => {
    const [toggle, setToggle] = useState(false);
@@ -15,9 +16,7 @@ const NavHader = () => {
       <div className="nav-header">
          
          <Link to="/ecom-product-list" className="brand-logo">
-            <img className="logo-abbr" src={logo} alt="" />
-            <img className="logo-compact" src={logoText} alt="" />
-            <img className="brand-title" src={logoText} alt="" />
+            <img className="brand-title" src={logo1} alt="" />
          </Link>
          
 

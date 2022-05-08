@@ -39,7 +39,7 @@ const ProductList = () => {
          <Tab.Container
                      defaultActiveKey={"Hamburger".toLowerCase()}
                   >
-                     <Nav as="ul" className="nav-pills mb-4">
+                     <Nav as="ul" className="nav-pills mb-4 justify-content-center nav-fill" >
                         {categories.map(
                            (data, i) =>
                               (

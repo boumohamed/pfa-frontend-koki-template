@@ -147,7 +147,7 @@ export default function Cart() {
                                         </Link >
                                         
                                         <div className="media-body">
-                                            <small className="mt-0 mb-1 font-w500 text-primary">{p.product.cat.designation}</small>
+                                            <small className="mt-0 mb-1 font-w500 text-warning">{p.product.cat.designation}</small>
                                             <h5 className="mt-0 mb-2 text-black mb-4"><Link to={"/ecom-product-detail"} className="text-black" >{p.product.nomPrd}</Link ></h5>
                                         </div>
                                     </div>
@@ -163,7 +163,7 @@ export default function Cart() {
                                 </td>
                                 <td>
                                 <Button
-                                    variant="outline-danger"
+                                    variant="outline-warning"
                                     onClick={() => {removeProduct(p.product.id)}}
                                     >
                                        <i class="fa-solid fa-x"></i>
