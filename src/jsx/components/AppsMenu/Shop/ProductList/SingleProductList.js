@@ -27,7 +27,7 @@ const SingleProductList = (props) => {
                         <h4><Link to={`ecom-product-list/${product.id}`} className="text-black">{product.nomPrd}</Link></h4>
                         <div className="comment-review star-rating">
                            
-							   <p className="price text-warning">{product.prixUt} MAD</p>
+							   <p className="price">{product.prixUt} MAD</p>
                         </div>
 						
                         <p>

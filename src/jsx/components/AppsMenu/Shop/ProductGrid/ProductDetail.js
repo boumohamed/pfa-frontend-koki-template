@@ -10,13 +10,14 @@ const ProductDetail = ({ match }) => {
    const [existingProducts, setProduct] = useState([])
    const [quantity, setQuantity] = useState(1)
    const [productData, setData] = useState({})
+
    
    
 
       useEffect(() => {
          getData();
          getProductFromLS();
-     }, [productData])
+     }, [])
    
 
    function AddTocart() {
@@ -24,8 +25,7 @@ const ProductDetail = ({ match }) => {
       var existingProducts = JSON.parse(localStorage.getItem("products"));
       if(existingProducts == null) existingProducts = [];
       // Save allEntries back to local storage
-      localStorage.setItem("products", JSON.stringify(existingProducts));
-
+      //localStorage.setItem("products", JSON.stringify(existingProducts));
       var newItem = {
          "id": productData.id,
          "product": productData,
@@ -44,9 +44,6 @@ const ProductDetail = ({ match }) => {
             localStorage.setItem("products", JSON.stringify(existingProducts));
             totalCalculate()
             AddedSuccessfuly()
-            
-            
-            
          }
          
    }
@@ -142,7 +139,7 @@ const ProductDetail = ({ match }) => {
                               <div className="new-arrival-content pr">
                                  <h4 >{productData.nomPrd}</h4>
                                  
-                                 <p className="price text-warning">{productData.prixUt} MAD</p>
+                                 <p className="price">{productData.prixUt} MAD</p>
                                  <p>
                                     Availability:
                                     <span className="item">
@@ -166,7 +163,6 @@ const ProductDetail = ({ match }) => {
                                  </div>
                                  <div className="shopping-cart mt-3">
                                     <Button
-                                       className="btn btn-warning"
                                        onClick={AddTocart}
                                     >
                                        <i className="fa fa-shopping-basket mr-2"></i>

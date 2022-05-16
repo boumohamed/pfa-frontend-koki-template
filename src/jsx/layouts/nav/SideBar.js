@@ -381,7 +381,7 @@ class SideBar extends Component {
 				
                <div className="copyright">
                   <p>
-                     <strong>Click&Collect</strong> ©All Rights Reserved
+                     <strong>Food4S</strong> ©All Rights Reserved
                   </p>
                </div>
             </PerfectScrollbar>
