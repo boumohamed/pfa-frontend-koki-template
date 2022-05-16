@@ -8,7 +8,7 @@ const Footer = () => {
             <p>
                Copyright © Designed &amp; Developed by{" BOUZRI-FADOUACHE-OUBARI "}
                <Link to="http://dexignzone.com/" target="_blank">
-                  Click&Collect
+                  Food4S
                </Link>{" "}
                2020
             </p>
